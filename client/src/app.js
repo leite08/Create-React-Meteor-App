@@ -21,7 +21,7 @@ class app extends Component {
         {documents && documents.length > 0 ?
           <ul>
             {documents.map(doc => (
-              <li>{doc.name} | {doc.company.name}</li>
+              <li key={doc._id}>{doc.name} | {doc.company.name}</li>
             ))}
           </ul>
         :
@@ -32,11 +32,9 @@ class app extends Component {
   }
 }
 
-// export default app;
 export default withTracker(() => {
   const subscription = Meteor.subscribe('document.list');
   const docs = Documents.find().fetch();
-  docs.forEach( doc => console.log(`[withTracker] ..... ${JSON.stringify(doc)}`) );
   return {
     loading: !subscription.ready(),
     documents: docs

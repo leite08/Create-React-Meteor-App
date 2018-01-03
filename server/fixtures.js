@@ -28,7 +28,7 @@ const documentsSeed = (company) => {
 
 const seed = () => {
   const environments = ['development', 'staging'];
-  if (!environments.includes(process.env.NODE_ENV)) { // TODO untested
+  if (!environments.includes(process.env.NODE_ENV)) {
     return;
   }
   if (!runFixtures) {
