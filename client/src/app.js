@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
-import Documents from '../../import/Documents'
+import Documents from '../../import/Documents';
 
 import './app.css';
 
@@ -33,7 +33,7 @@ class app extends Component {
 }
 
 export default withTracker(() => {
-  const subscription = Meteor.subscribe('document.list');
+  const subscription = Meteor.subscribe('document.list', '123');
   const docs = Documents.find().fetch();
   return {
     loading: !subscription.ready(),
